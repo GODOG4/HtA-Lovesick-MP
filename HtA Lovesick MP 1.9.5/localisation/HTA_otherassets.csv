@@ -61,6 +61,12 @@ native_societies3;Native Endurance;;;;;;;;;;;x
 native_societies3_desc;We've proven ourselves to be 'civilized' to the White Man and thus have earned their respect. We need to focus now on reconquering our land and kicking them out instead of just repopulating.;;;;;;;;;;;;;;x
 not_suppressed;Raid Result;;;;;;;;;;;;x
 not_suppressed_desc;Pretend this doesn't exist, it's a workaround for code limitations.;;;;;;;;;;;;x
+christian_genocide;Forced Conversion;;;;;;;;;;;;x
+christian_genocide_desc;The Shogun has enacted harsh oppression of the Christians in Japan, forcing them to convert back to Buddhism by the sword. As expected, this is leading a lot of unrest and turmoil.;;;;;;;;;;;;x
+christian_assimilation;Abandoned Followers of Christ;;;;;;;;;;;;x
+christian_assimilation_desc;With the Dutch finally removing their missionaries and support, the Christians of Japan now feel betrayed and forsaken. This has made conversion efforts much much easier.;;;;;;;;;;;;x
+korean_assimilation;Assimilating the Koreans;;;;;;;;;;;;x
+korean_assimilation_desc;Despite them also being Christians, the Koreans are proving to much easier to convert and integrate. It probably helps that they're Catholics and thus the Dutch are not interfering with our settlement policies. We've learned a lot from converting our homeland as well.;;;;;;;;;;;;x
 obbite;Obbite;;;;;;;;;x
 oheskewen_canal;Oheskewen Canal;;;;;;;;;;x
 oheskewen_canal_dividend;Dividends from the Oheskewen Canal;;;;;;;;;;x

@@ -13,10 +13,10 @@ political_decisions = {
 		effect = { 
 			set_global_flag = christian_genocide
 			remove_country_modifier = ansei_purge 
-			badboy = 15
+			badboy = 12
 			add_country_modifier = {
 				name = "international_pariah"
-				duration = 10000
+				duration = 8000
 			}
 			JAP = { all_core = { add_core = THIS } }	
 			NET = { country_event = 97602 }
@@ -24,7 +24,7 @@ political_decisions = {
 				all_core = {
 					add_province_modifier = {
 						name = christian_genocide
-						duration = 10000
+						duration = 8000
 						}
 				} 
 			}
@@ -33,6 +33,31 @@ political_decisions = {
 			factor = 1
 		}
 	}
+
+	jap_negotiate_with_dutch = {
+		picture = negotiations
+		potential = {
+				tag = TKG
+				has_global_flag = christian_genocide 
+				NOT = { has_global_flag = negotiated_with_dutch }
+				NOT = { has_global_flag = japan_united }
+			}
+
+		allow = {
+			owns = 1638
+			owns = 1665
+			NET = { owns = 77 }
+			}
+
+		effect = { 
+			set_global_flag = negotiated_with_dutch
+			NET = {
+				country_event = 97603	
+				}
+			}
+		}
+
+	
 	jap_united = {
 		picture = order_to_expel_barbarians
 		potential = {
@@ -45,21 +70,23 @@ political_decisions = {
 		 	JAP = { all_core = { owned_by = THIS } }
 			CHO = { all_core = { owned_by = THIS } }
 			TOS = { all_core = { owned_by = THIS } }
+			AIN = { all_core = { owned_by = THIS } }
 			civilized = yes
 			}
 		effect = { 
 			set_global_flag = japan_united
 			remove_country_modifier = international_pariah
-
+			prestige = 5
 			TOS = { all_core = { add_core = THIS remove_core = TOS } }
 			CHO  = { all_core = { add_core = THIS remove_core = CHO } }
-			JAP = { all_core = { remove_core = JAP } }	
-
+			JAP = { all_core = { remove_core = JAP } }
+			AIN = { all_core = { add_core = THIS remove_core = AIN  } }	
+			TKG = { all_core = { add_province_modifier = { name = colonial_recruitment duration = 3030 } add_province_modifier = { name = christian_assimilation duration = 4000 } } }
 			ai_will_do = {
 			factor = 1
+			}
 		}
 	}
-}
 	assimilate_korea = {
 		picture = genocide_minorities
 		potential = {
@@ -69,9 +96,8 @@ political_decisions = {
 		}
 		
 		allow = {
-			war = no
 			civilized = yes
-			KOR = { all_core = { owned_by = THIS }}
+			KOR = { all_core = { owned_by = THIS } }
 		}
 		
 		effect = {
@@ -82,7 +108,7 @@ political_decisions = {
 				}
 				add_province_modifier = {
 					name = korean_assimilation
-					duration = 2525
+					duration = 3030
 					}
 				}
 				set_country_flag = korea_assimilated
@@ -106,7 +132,6 @@ political_decisions = {
 		}
 		
 		allow = {
-			war = no
 			civilized = yes
 		}
 		
@@ -133,18 +158,22 @@ political_decisions = {
 				tag = GXI
 				tag = TKG
 			}
-			exists = RYU
-			civilized = yes
-			NOT = { has_global_flag = ryukyu_inherited }		}
+			NOT = { has_global_flag = ryukyu_inherited }		
+		}
 
 		allow = {
+			civilized = yes
 			war = no
 			RYU = { war = no }
-			RYU = { in_sphere = THIS }
+			OR = {
+				RYU = { all_core = { owned_by = THIS } }
+				RYU = { in_sphere = THIS }
+			}
 		}
 
 		effect = {
 			set_global_flag = ryukyu_inherited
+			RYU = { all_core = { remove_core = RYU } }
 			1678 = { add_core = THIS }
 			1679 = { add_core = THIS }
 			inherit = RYU
@@ -154,40 +183,4 @@ political_decisions = {
 			factor = 1
 		}
 	}
-	
-	barbarian_islands = {
-		picture = begin_line_of_advantage
-		potential = {
-			tag = TKG
-			NOT = { has_country_flag = settle_barbarians }
-			has_global_flag = japan_united
-		}
-		
-		allow = {
-			war = no
-			OR = {
-				is_greater_power = yes
-				is_secondary_power = yes
-			}
-		}
-		
-		effect = {
-			set_country_flag = settle_barbarians
-			badboy = 3
-			prestige = 5
-			AIN = {
-				all_core = { add_core = THIS }
-				relation = { who = THIS value = -100 }
-				diplomatic_influence = { who = THIS value = -150 }
-			}
-		}
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				badboy = 0.8
-			}
-		}
-	}
-
 }	

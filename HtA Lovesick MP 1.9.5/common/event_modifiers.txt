@@ -212,6 +212,12 @@ korean_assimilation = {
 	icon = 19
 }
 
+christian_assimilation = {
+	immigrant_attract = 1
+	assimilation_rate = 2.0
+	icon = 19
+}
+
 baby_boom = {
 	population_growth = 0.001
 	icon = 19
@@ -233,6 +239,7 @@ christian_genocide = {
 	life_rating = -0.2
 	pop_militancy_modifier = 0.015
 	pop_consciousness_modifier = 0.05
+	assimilation_rate = 1.5
 	icon = 20
 }	
 
@@ -1415,6 +1422,7 @@ pier_moncani = {
 	mobilisation_size = 0.01
 	mobilisation_economy_impact = -0.25
 	reinforce_rate = 0.05
+	org_regain = 0.1
 	icon = 17
 }
 
@@ -2140,9 +2148,9 @@ begin_revolution = {
 
 small_country_draft = {
 	pop_militancy_modifier = 0.01
-	mobilisation_size = 0.25
+	mobilisation_size = 0.05
 	prestige = -0.02
-	war_exhaustion = -0.03
+	war_exhaustion = 0.03
 	icon = 18
 }
 

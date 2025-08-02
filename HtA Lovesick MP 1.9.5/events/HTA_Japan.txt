@@ -77,8 +77,8 @@ country_event = {
 			}
 		}
 		add_country_modifier = {
-			name = daimyo_draft
-			duration = 30
+			name = small_country_draft
+			duration = 1000
 		}
 
 		add_country_modifier = {
@@ -143,5 +143,65 @@ country_event = {
 			create_vassal = TOS 
 			create_vassal = CHO 
 			}
+		}
+	}
+
+country_event = {
+	id = 97603
+	title = "Settlement with the Shogun"
+	desc = "After losing control of the remaining Christian Daimyo, The Barbaric Shogunate has come to us with a proposal: they will renounce their claim and let us keep Kyushu if we stop our missionary activities in Japan."
+	picture = "rangoku"
+
+	is_triggered_only = yes
+
+	major = yes
+	
+	option = {
+		name = "We should agree, Kyushu is a perfect foothold in Asia."
+		NET = { 
+			CHO  = { 
+				all_core = { limit = { owned_by = THIS } add_core = THIS remove_core = CHO add_province_modifier = { name = colonial_recruitment duration = 8000 } } } 
+			}
+		TKG = { country_event = 97604 }
+		ai_chance = {
+			factor = 100
+			}
+		}
+	option = {
+		name = "No, this is just a minor set back, we'll convert all of Japan at any moment surely..."
+		NET = { 
+			TKG = { country_event = 97605 }
+			}
+		}
+	}
+
+country_event = {
+	id = 97604
+	title = "The Dutch Accept!"
+	desc = "We've finally gotten the Dutch to agree to stop trying to convert our lands, in exchange for Kyushu. They have requested that we stop our massacres of the Christians however."
+	picture = "rangoku"
+
+	is_triggered_only = yes
+
+	major = yes
+	
+	option = {
+		name = "Great!"
+		any_owned = { remove_province_modifier = christian_genocide }
+		}
+	}
+
+country_event = {
+	id = 97605
+	title = "The Dutch Reject!"
+	desc = "They've unfortunately rejected our proposal..."
+	picture = "rangoku"
+
+	is_triggered_only = yes
+
+	major = yes
+	
+	option = {
+		name = "Damn the Perfidious Dutch!"
 		}
 	}
